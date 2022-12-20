@@ -48,11 +48,23 @@ WORKDIR /home/appuser/detectron2_repo
 
 #python3 demo/demo.py \
 #--config-file configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml \
-#--input /data/kitti-odometry/dataset/sequences/00/image_2/000000.png  --output /data \
+#--input /data/test-image.png  --output /data \
 #--opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl
 
 #
 #python3 demo/demo.py \
 #--config-file configs/Cityscapes/mask_rcnn_R_50_FPN.yaml \
 #--input /data/kitti-odometry/dataset/sequences/00/image_2/000000.png  --output /data \
+#--opts MODEL.WEIGHTS detectron2://Cityscapes/mask_rcnn_R_50_FPN/142423278/model_final_af9cf5.pkl
+
+# PANOPTIC:
+#python3 demo/demo.py \
+#--config-file configs/COCO-PanopticSegmentation/panoptic_fpn_R_101_3x.yaml \
+#--input /data/test-image.png --output /data/result.png \
+#--opts MODEL.WEIGHTS detectron2://COCO-PanopticSegmentation/panoptic_fpn_R_101_3x/139514519/model_final_cafdb1.pkl
+
+# Cityscape
+#python3 demo/demo.py \
+#--config-file configs/Cityscapes/mask_rcnn_R_50_FPN.yaml \
+#--input /data/test-image.png --output /data/cityscapes.png \
 #--opts MODEL.WEIGHTS detectron2://Cityscapes/mask_rcnn_R_50_FPN/142423278/model_final_af9cf5.pkl
