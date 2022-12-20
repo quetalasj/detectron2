@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.1.1-cudnn8-devel-ubuntu18.04
+FROM nvidia/cuda:11.1.1-cudnn8-devel-ubuntu20.04
 # use an older system (18.04) to avoid opencv incompatibility (issue#3524)
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -14,7 +14,7 @@ USER appuser
 WORKDIR /home/appuser
 
 ENV PATH="/home/appuser/.local/bin:${PATH}"
-RUN wget https://bootstrap.pypa.io/pip/3.6/get-pip.py && \
+RUN wget https://bootstrap.pypa.io/pip/get-pip.py && \
 	python3 get-pip.py --user && \
 	rm get-pip.py
 
@@ -45,3 +45,14 @@ WORKDIR /home/appuser/detectron2_repo
 	#--config-file configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml \
 	#--input input.jpg --output outputs/ \
 	#--opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl
+
+#python3 demo/demo.py \
+#--config-file configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml \
+#--input /data/kitti-odometry/dataset/sequences/00/image_2/000000.png  --output /data \
+#--opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl
+
+#
+#python3 demo/demo.py \
+#--config-file configs/Cityscapes/mask_rcnn_R_50_FPN.yaml \
+#--input /data/kitti-odometry/dataset/sequences/00/image_2/000000.png  --output /data \
+#--opts MODEL.WEIGHTS detectron2://Cityscapes/mask_rcnn_R_50_FPN/142423278/model_final_af9cf5.pkl
